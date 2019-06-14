@@ -26,7 +26,7 @@ public class CoordinatesListAdapter extends RecyclerView.Adapter<CoordinatesList
 
     @Override
     public void onBindViewHolder(@NonNull CoordinatesListViewHolder coordinatesListViewHolder, int i) {
-        coordinatesListViewHolder.latlongTv.setText(coordinatesEntityList.get(i).getLat() + " " +
+        coordinatesListViewHolder.latlongTv.setText(coordinatesEntityList.get(i).getLat() + " , " +
                 coordinatesEntityList.get(i).getLon());
     }
 
