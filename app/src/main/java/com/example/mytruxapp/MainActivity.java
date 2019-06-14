@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "AppDatabase").build();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.INTERNET},1);
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.INTERNET}, 1);
         }
 
         startTrackingButton = findViewById(R.id.startTrackingButton);
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
                     new AsyncTask<Void, Void, Void>() {
                         @Override
                         protected Void doInBackground(Void... voids) {
-                            Log.d("IN BACKGROUND", String.valueOf(location.getLatitude()));
                             db.daoAccess().insertData(new CoordinatesEntity(location.getLatitude(), location.getLongitude()));
                             return null;
                         }
@@ -119,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
         locationRequest.setInterval(5000);
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
     }
-
 
 
     private void startLocationUpdates() {
